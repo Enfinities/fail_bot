@@ -53,8 +53,8 @@ if __name__ == "__main__":
     os.chdir(os.path.dirname(os.path.realpath(__file__)))
 
     # Define and start the bot
-    var1 = "MTIwNDE0OTI5NzcyMjE2M"
-    var2 = "zI0MQ.Gzl1wn.gV5ngZD1MVv25jaEa8fkR3C0ykNd5TgEjpi72c"
+    var1 = "MTIwNzk2MTE5NzkwMzc0NTAyNA.GMEIn-"
+    var2 = ".NBDrwWCO16SYnyzE0IEwQkjngAi746pgPRBNKA"
     bot_token = var1 + var2
     bot = Client(token=bot_token)
     bot.start()
