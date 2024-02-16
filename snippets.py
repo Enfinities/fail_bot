@@ -6,6 +6,10 @@ from interactions import (SlashContext, OptionType, Client, listen,
 import traceback
 from interactions.api.events import CommandError
 
+import Fail_functions
+from Fail_functions import send_random_img_url
+import json
+
 
 @listen()
 async def on_ready():
@@ -36,16 +40,16 @@ base_command = SlashCommand(
     scopes=[1193614893870489720])
 
 
-@base_command.subcommand(sub_cmd_name="hi",
-                         sub_cmd_description="say hi")
+@base_command.subcommand(sub_cmd_name="punish",
+                         sub_cmd_description="say fail in the nicest way possible")
 async def award_points(ctx: SlashContext):
     """Just says hi... for now ;)
 
     :param ctx: (object) contains information about the interaction
     """
-
+    images = Fail_functions.send_random_img_url('gelbooru_img_urls.json')
     # Send 'hi' to Discord
-    await ctx.send('hi')
+    await ctx.send(images)
 
 
 if __name__ == "__main__":
