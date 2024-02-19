@@ -9,7 +9,7 @@ from interactions.api.events import CommandError
 import Fail_functions
 from Fail_functions import send_random_img_url
 import json
-
+from Fail_functions import add_fail ,add_praise, count_score
 
 @listen()
 async def on_ready():
@@ -47,6 +47,7 @@ async def award_points(ctx: SlashContext):
 
     :param ctx: (object) contains information about the interaction
     """
+    Fail_functions.add_fail()
     images = Fail_functions.send_random_img_url('gelbooru_img_urls.json')
     # Send 'hi' to Discord
     await ctx.send(images)
@@ -55,9 +56,16 @@ async def award_points(ctx: SlashContext):
                          sub_cmd_description="gives praise!")
 async def award_points2(ctx: SlashContext):
 
+    Fail_functions.add_praise()
     images = Fail_functions.send_random_img_url('gelbooru_img_urls.json')
     await ctx.send(images)
 
+
+@base_command.subcommand(sub_cmd_name="score",
+                         sub_cmd_description="keeps track of praise and punishments")
+async def count_score(ctx: SlashContext):
+    score = Fail_functions.count_score()
+    await ctx.send(print(score))
 
 if __name__ == "__main__":
     # Set the cwd to the directory where this file lives
