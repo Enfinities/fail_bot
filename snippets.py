@@ -51,6 +51,13 @@ async def award_points(ctx: SlashContext):
     # Send 'hi' to Discord
     await ctx.send(images)
 
+@base_command.subcommand(sub_cmd_name="praise",
+                         sub_cmd_description="gives praise!")
+async def award_points2(ctx: SlashContext):
+
+    images = Fail_functions.send_random_img_url('gelbooru_img_urls.json')
+    await ctx.send(images)
+
 
 if __name__ == "__main__":
     # Set the cwd to the directory where this file lives
