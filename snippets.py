@@ -65,7 +65,7 @@ async def award_points2(ctx: SlashContext):
                          sub_cmd_description="keeps track of praise and punishments")
 async def count_score(ctx: SlashContext):
     score = Fail_functions.count_score()
-    await ctx.send(print(score))
+    await ctx.send(score)
 
 if __name__ == "__main__":
     # Set the cwd to the directory where this file lives

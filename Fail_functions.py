@@ -1,5 +1,6 @@
-import json
 import random
+import json
+import os
 
 
 def send_random_img_url(json_file):
@@ -15,8 +16,7 @@ if __name__ == "__main__":
     random_img_url = send_random_img_url('gelbooru_img_urls.json')
     print(random_img_url)
 
-import json
-import os
+
 
 def add_praise():
     # Check if counter.json exists
@@ -57,3 +57,4 @@ def count_score():
 
     # Format the counts into a string
     return f"Praise Count: {praise_count}\nFail Count: {fail_count}"
+

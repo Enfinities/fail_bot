@@ -32,5 +32,20 @@ img_urls = extract_img_urls(urls)
 # Write img_urls to a JSON file
 with open('gelbooru_img_urls.json', 'w') as f:
     json.dump(img_urls, f)
+import json
 
+def remove_svg_urls(file_path):
+    # Load JSON data from file
+    with open(file_path, 'r') as f:
+        data = json.load(f)
+
+    # Filter out URLs that end with '.svg'
+    filtered_urls = [url for url in data if not url.endswith('.svg')]
+
+    # Write filtered URLs back to the file
+    with open(file_path, 'w') as f:
+        json.dump(filtered_urls, f, indent=4)
+
+# Example usage:
+remove_svg_urls("gelbooru_img_urls.json")
 print("Image URLs extracted and saved to gelbooru_img_urls.json")
