@@ -30,13 +30,13 @@ async def on_ready():
 #         errors = ''
 #         if event.error.args[0]:
 #             errors = '\nAlso! '.join(event.error.args)
-#         await event.ctx.send('Error! ' + errors, ephemeral=True)
+#         await event.ctx.send('Error! ' + errors, ephemeral=True).
 
 
 # Base command
 base_command = SlashCommand(
     name="fail",
-    description="Someone's been naughty. Time to fetch the paddle")
+    description="Someone's been naughty. Time to fetch the paddle)
 
 
 @base_command.subcommand(sub_cmd_name="punish",
