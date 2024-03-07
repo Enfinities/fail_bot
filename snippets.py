@@ -36,7 +36,7 @@ async def on_ready():
 # Base command
 base_command = SlashCommand(
     name="fail",
-    description="Someone's been naughty. Time to fetch the paddle"])
+    description="Someone's been naughty. Time to fetch the paddle"]
 
 
 @base_command.subcommand(sub_cmd_name="punish",
