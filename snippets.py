@@ -47,7 +47,7 @@ async def award_points(ctx: SlashContext):
     :param ctx: (object) contains information about the interaction
     """
     Fail_functions.add_fail()
-    images = Fail_functions.send_random_img_url('gelbooru_img_urls.json')
+    images = Fail_functions.send_random_img_url("transformed_img_urls.json")
     # Send 'hi' to Discord
     await ctx.send(images)
 
@@ -56,7 +56,7 @@ async def award_points(ctx: SlashContext):
 async def award_points2(ctx: SlashContext):
 
     Fail_functions.add_praise()
-    images = Fail_functions.send_random_img_url('gelbooru_img_urls.json')
+    images = Fail_functions.send_random_img_url("transformed_img_urls.json")
     await ctx.send(images)
 
 
@@ -65,6 +65,20 @@ async def award_points2(ctx: SlashContext):
 async def count_score(ctx: SlashContext):
     score = Fail_functions.count_score()
     await ctx.send(score)
+
+
+@base_command.subcommand(sub_cmd_name="lib",
+                            sub_cmd_description="yes")
+async def lib(ctx: SlashContext):
+    with open("transformed_img_urls.json", 'r') as f:
+        img_list = json.load(f)
+    msg = ''
+    for i in range(len(img_list)):
+        msg += '\n'
+        msg += f'{i}: {img_list[i]}'
+        if i % 5 == 0:
+            await ctx.send(msg)
+            msg = ''
 
 if __name__ == "__main__":
     # Set the cwd to the directory where this file lives
